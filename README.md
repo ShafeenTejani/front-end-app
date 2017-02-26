@@ -49,7 +49,20 @@ Now let's try to convert our application to use ES6 syntax - which is much coole
 1. Now when you run a Webpack build it should transpile the code to ES5 - and the app should now work in IE11.
 
 
+## Using React.js
 
+Now let's modify our code to use [React](https://facebook.github.io/react/) instead of plain Javascript.
+
+1. Install the `react` and `react-dom` packages
+ 1. `npm install --save react react-dom`
+1. Create a React component called Characters.js which renders all of the Star Wars characters.
+1. Update the index.js file to use ReactDOM to render your Characters components on completion of the api request
+ 1. `ReactDOM.render(<Characters data={characters}/>, document.getElementById('characters'));`
+1. Try to build your app using Webpack. You will most likely get a sytnax error. This is because Webpack does not know how to handle JSX. We need to add a specific Babel loader to transpile JSX code into native JavaScript.
+1. Install the Babel React preset
+ 1. `npm install --save-dev babel-preset-react`
+ 1. Add the `'react'` preset to the list of presets in your Webpack configuration file
+1. You should be able to rebuild the app successfully now
 
 
 
