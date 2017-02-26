@@ -1,5 +1,8 @@
 
 import nanoajax from 'nanoajax'
+import React from "react"
+import ReactDOM from "react-dom"
+import Characters from "./Characters"
 
 const fetchCharacters = (url, callback, current=[]) => {
     nanoajax.ajax({url:url}, (code, responseText) => {
@@ -10,6 +13,5 @@ const fetchCharacters = (url, callback, current=[]) => {
 };
 
 fetchCharacters('http://swapi.co/api/people/', (characters) => {
-    const html = characters.map((c) => `<div>${c.name}</div>`).join("");
-    document.getElementById("characters").innerHTML = `<div>${html}</div>`;
+    ReactDOM.render(<Characters data={characters}/>, document.getElementById('characters'));
 });
