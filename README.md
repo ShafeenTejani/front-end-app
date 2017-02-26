@@ -66,4 +66,11 @@ Now let's modify our code to use [React](https://facebook.github.io/react/) inst
 
 
 
+## Extensions
+
+1. Using Webpack to inline the loading of [images](https://www.davidmeents.com/blog/how-to-set-up-webpack-image-loader/) and [css files](https://github.com/webpack-contrib/css-loader)
+1. Add the [mocha framework](https://mochajs.org/) for testing (along with [jsdom](https://github.com/tmpvar/jsdom) and [enzyme](https://github.com/airbnb/enzyme))
+1. Use the [Webpack dev server](https://webpack.github.io/docs/webpack-dev-server.html) for faster development locally
+
+
 
