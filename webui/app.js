@@ -12,7 +12,6 @@ function fetchCharacters(url, current, callback) {
 }
 
 fetchCharacters('http://swapi.co/api/people/', [], function (characters) {
-    console.log("done with  " + characters);
     var html = "";
     characters.forEach(function(character) {
         html = html + "<div>" + character.name + "</div>";
