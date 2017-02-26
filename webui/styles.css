@@ -1,0 +1,24 @@
+body {
+    background-color: black;
+    color: white;
+    font-family: 'sans-serif';
+}
+
+#characters {
+    margin-left: 1em;
+    font-weight: bold;
+}
+
+.header img {
+    vertical-align: middle;
+}
+
+.loading img {
+    vertical-align: middle;
+}
+
+.header {
+    color: #fff521;
+    font-family: 'Star Jedi';
+    font-size: 2.5em;
+}
