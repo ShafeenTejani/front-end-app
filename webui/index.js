@@ -1,4 +1,6 @@
 
+import nanoajax from 'nanoajax'
+
 function fetchCharacters(url, current, callback) {
     nanoajax.ajax({url:url}, function (code, responseText) {
         var json = JSON.parse(responseText);
