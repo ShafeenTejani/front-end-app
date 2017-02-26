@@ -3,7 +3,7 @@ A dojo for setting up a minimal front-end application using Webpack, React.js &a
 
 1. Checkout the code 
   * Import into IntelliJ as an sbt project (there is a simple Scala server to serve the front-end assets)
-1. Run App.scala and go to localhost:8080 to view the application
+1. Run App.scala and go to [localhost:8080](http://localhost:8080) to view the application
 1. Look at the developer network console and make a note of the network requests that are made
 
 
