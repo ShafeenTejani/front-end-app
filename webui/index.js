@@ -1,24 +1,15 @@
 
 import nanoajax from 'nanoajax'
 
-function fetchCharacters(url, current, callback) {
-    nanoajax.ajax({url:url}, function (code, responseText) {
-        var json = JSON.parse(responseText);
-        if (json.next) {
-            fetchCharacters(json.next, current.concat(json.results), callback);
-        }
-        else {
-            callback(current);
-        }
+const fetchCharacters = (url, callback, current=[]) => {
+    nanoajax.ajax({url:url}, (code, responseText) => {
+        const json = JSON.parse(responseText);
+        const {next, results} = json;
+        next ? fetchCharacters(next, callback, current.concat(results)) : callback(current);
     });
-}
+};
 
-fetchCharacters('http://swapi.co/api/people/', [], function (characters) {
-    console.log("done with  " + characters);
-    var html = "";
-    characters.forEach(function(character) {
-        html = html + "<div>" + character.name + "</div>";
-    });
-
-    document.getElementById("characters").innerHTML = "<div>" + html + "</div>";
+fetchCharacters('http://swapi.co/api/people/', (characters) => {
+    const html = characters.map((c) => `<div>${c.name}</div>`).join("");
+    document.getElementById("characters").innerHTML = `<div>${html}</div>`;
 });
