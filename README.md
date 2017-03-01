@@ -36,7 +36,7 @@ Now let's try to convert our application to use ES6 syntax - which is much coole
 1. Rebuild your app - it will still work in Chrome and Safari which support ES6, but not IE11.
 1. In order to get cross-browser compatibility we will use [Babel](https://babeljs.io/) to transpile our code back to ES5 when we build it.
 1. Install the babel es2015 presets and the babel CLI following the instructions [here](http://babeljs.io/docs/plugins/preset-es2015/):
- 1. `npm install --save-dev babel-cli babel-preset-env`
+ 1. `npm install --save-dev babel-cli babel-preset-es2015`
  1. `echo '{ "presets": ["es2015"] }' > .babelrc`
 1. You can now transpile your code back to ES5 using the command: `./node_modules/.bin/babel index.js`
 
