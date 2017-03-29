@@ -4,7 +4,7 @@ import org.eclipse.jetty.servlet.{DefaultServlet, ServletContextHandler, Servlet
 
 object App {
 
-  def main(args: Array[String]) = {
+  def main(args: Array[String]): Unit = {
     val server = new Server(8080)
 
     val ctx = new ServletContextHandler()
