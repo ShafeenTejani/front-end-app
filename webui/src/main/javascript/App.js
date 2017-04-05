@@ -6,7 +6,7 @@ import Characters from "./Characters"
 const fetchCharacters = (url, callback, current = []) => {
     nanoajax.ajax({url:url}, (code, responseText) => {
         const {next, results} = JSON.parse(responseText);
-        next ? fetchCharacters(next, callback, current.concat(results)) : callback(current);
+        next ? fetchCharacters(next, callback, current.concat(results)) : callback(current.concat(results));
     });
 };
 

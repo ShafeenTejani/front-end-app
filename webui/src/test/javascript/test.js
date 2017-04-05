@@ -1,21 +1,25 @@
 import React from "react"
-import { mount } from "enzyme";
 import expect from "must";
-import Characters from "../../main/javascript/Characters";
-
+import App from "../../main/javascript/App";
+import {mount} from "enzyme";
+import {after, before, describe, it} from "mocha";
+import sinon from "sinon";
 
 describe('Characters', () => {
-    it('TODO', () => {
-        // TODO use sinon to mock/fake response from swazi.co call...
+
+    let server;
+
+    before(function () { server = sinon.fakeServer.create(); });
+    after(function () { server.restore(); });
+
+    it('renders the characters as returned by the server', () => {
         const component = mount(<App />);
 
-        expect(component.find('.character').map(i => i.text())).to.eql(["Alpha", "Beta", "Gamma"]);
-    });
-
-
-    it('renders each characters using a div with class .character', () => {
-        const chars = [{name: 'Alpha'}, {name: 'Beta'}, {name: 'Gamma'}];
-        const component = mount(<Characters data={chars} />);
+        server.requests[0].respond(
+            200,
+            { "Content-Type": "application/json" },
+            JSON.stringify({results: [{name: 'Alpha'}, {name: 'Beta'}, {name: 'Gamma'}]})
+        );
 
         expect(component.find('.character').map(i => i.text())).to.eql(["Alpha", "Beta", "Gamma"]);
     });
